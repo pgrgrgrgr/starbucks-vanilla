@@ -15,3 +15,33 @@ searchInputEl.addEventListener('blur', function() {
   searchEl.classList.remove('focused');
   searchInputEl.setAttribute('placeholder', '');
 });
+
+const badgeEl = document.querySelector('header .badges');
+
+window.addEventListener('scroll', _.throttle(function() {
+  console.log(window.scrollY);
+  if(window.scrollY > 500) {
+    // hide badge
+    //gsap.to(element, time, option);
+    gsap.to(badgeEl, .6, {
+      opacity: 0,
+      display: 'none'
+    });
+  } else {
+    // see badge
+    gsap.to(badgeEl, .6, {
+      opacity: 1,
+      display: 'block'
+    })
+  }
+}, 300));
+// _.throttle(function, timems)
+
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+fadeEls.forEach(function (fadeEl, index) {
+  // gsap.to(element, time, option)
+  gsap.to(fadeEl, 1, {
+    delay: (index + 1) * .7,
+    opacity: 1
+  });
+});
