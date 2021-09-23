@@ -128,3 +128,7 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, 'show') // 요소가 0.8 지점을 넘어서면 show 클래스가 추가됨
     .addTo(new ScrollMagic.Controller());
 });
+
+
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear(); // 2021
